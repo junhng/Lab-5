@@ -1,16 +1,35 @@
-import java.util.Date;
+import java.util.GregorianCalendar;
 
 public abstract class PermanentEmployee extends Employee {
+	private int numberOfYears;
+	private static int numberOfPerm = 0; {
+		numberOfPerm++;
+	}
 	
 	public PermanentEmployee() {
-		super();
 	}
+	
 	public PermanentEmployee(int employeeId, String firstName, String lastName, double salary, String grade,
-			Date joinDate) {
+			GregorianCalendar joinDate, int numberOfYears) {
 		super(employeeId, firstName, lastName, salary, grade, joinDate);
+		setNumberOfYears(numberOfYears);
 	}
-	public double getSalaryDrawn() {
+	
+	public int getNumberOfYears() {
+		return numberOfYears;
+	}
+
+	public void setNumberOfYears(int numberOfYears) {
+		this.numberOfYears = numberOfYears;
+	}
+	public static int getNumOfPerm() {
+		return numberOfPerm;
+	}
+	
+	@Override
+	public double getSalary() {
 		return getSalary();
 	}
+	
 	public abstract double getCoverage();
 }

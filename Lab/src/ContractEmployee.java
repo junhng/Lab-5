@@ -1,35 +1,46 @@
-import java.util.Date;
+import java.util.GregorianCalendar;
 
-public class ContractEmployee extends Employee {
-	private double numOfHoursWorked;
+public abstract class ContractEmployee extends Employee {
+	private double numberOfHoursWorked;
+	private Contractor contractor;
+	private static int numberOfContract = 0; {
+		numberOfContract++;
+	}
 	
 	public ContractEmployee() {
-		super();
 	}
+	
 	public ContractEmployee(int employeeId, String firstName, String lastName, double salary, String grade,
-			Date joinDate, double numOfHOursWorked) {
+			GregorianCalendar joinDate, double numberOfHoursWorked, Contractor contractor) {
 		super(employeeId, firstName, lastName, salary, grade, joinDate);
-		setNumOfHoursWorked(numOfHOursWorked);
+		setNumOfHoursWorked(numberOfHoursWorked);
+		setContractor(contractor);
+	}
+
+
+	public double getNumberOfHoursWorked() {
+		return numberOfHoursWorked;
+	}
+	public void setNumOfHoursWorked(double numberOfHoursWorked) {
+		this.numberOfHoursWorked = numberOfHoursWorked;
+	}
+	public Contractor getContractor() {
+		return contractor;
+	}
+	public void setContractor(Contractor contractor) {
+		this.contractor = contractor;
 	}
 	
-	public double getNumOfHoursWorked() {
-		return numOfHoursWorked;
-	}
-	public void setNumOfHoursWorked(double numOfHoursWorked) {
-		this.numOfHoursWorked = numOfHoursWorked;
-	}
-	
-	public double getSalaryDrawn() {
-		return getSalary() * getNumOfHoursWorked();
+	@Override
+	public double getSalary() {
+		return contractor.getRate() * getNumberOfHoursWorked();
 	}
 	@Override
-	public String toString() {
-		return "ContractEmployee [numOfHoursWorked=" + numOfHoursWorked + ", getNumOfHoursWorked()="
-				+ getNumOfHoursWorked() + ", getSalaryDrawn()=" + getSalaryDrawn() + ", getEmployeeId()="
-				+ getEmployeeId() + ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName()
-				+ ", getSalary()=" + getSalary() + ", getGrade()=" + getGrade() + ", getJoinDate()=" + getJoinDate()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
-				+ "]";
+	public double getCoverage() {
+		return 0;
 	}
-	
+	public static int getNumberOfContract() {
+		return numberOfContract;
+	}
+
 }

@@ -30,7 +30,7 @@ public class PermTechnicalAssociate extends PermanentEmployee {
 	@Override
 	public String toString() {
 		return "Employee ID: " + getEmployeeId() + " Name: " + getFirstName() + 
-				" " + getLastName() + "Designation: TA-P Years of experience: " +
+				" " + getLastName() + " Designation: TA-P Years of experience: " +
 				getNumberOfYears();
 	}
 }

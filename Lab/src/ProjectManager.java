@@ -21,7 +21,7 @@ public class ProjectManager extends PermanentEmployee {
 	@Override
 	public String toString() {
 		return "Employee ID: " + getEmployeeId() + " Name: " + getFirstName() + 
-				" " + getLastName() + "Designation: PM Years of experience: " +
+				" " + getLastName() + " Designation: PM Years of experience: " +
 				getNumberOfYears();
 	}
 }

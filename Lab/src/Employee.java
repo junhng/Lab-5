@@ -71,8 +71,9 @@ public abstract class Employee {
 	public void setJoinYear(int year) {
 		joinDate.set(Calendar.YEAR, year);
 	}
-	public abstract double getCoverage();
 	public static int getNumberOfEmployees() {
 		return numberOfEmployees;
 	}
+	
+	public abstract double getCoverage();
 }

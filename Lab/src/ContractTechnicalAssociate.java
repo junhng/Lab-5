@@ -22,7 +22,7 @@ public class ContractTechnicalAssociate extends ContractEmployee {
 	@Override
 	public String toString() {
 		return "Contractor: " + getContractor().getName() + " Name: " + getFirstName() + 
-				" " + getLastName() + "Designation: TA-C";
+				" " + getLastName() + " Designation: TA-C";
 	}
 	
 }

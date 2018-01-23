@@ -2,6 +2,7 @@ import java.util.GregorianCalendar;
 
 public abstract class PermanentEmployee extends Employee {
 	private int numberOfYears;
+	private Mediclaim mediclaim;
 	private static int numberOfPerm = 0; {
 		numberOfPerm++;
 	}
@@ -30,6 +31,12 @@ public abstract class PermanentEmployee extends Employee {
 	public double getSalary() {
 		return getSalary();
 	}
-	
-	public abstract double getCoverage();
+
+	protected Mediclaim getMediclaim() {
+		return mediclaim;
+	}
+
+	protected void setMediclaim(Mediclaim mediclaim) {
+		this.mediclaim = mediclaim;
+	}
 }

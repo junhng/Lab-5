@@ -1,14 +1,16 @@
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public abstract class Employee {
+public abstract class Employee implements Certification {
 	private int employeeId;
 	private String firstName;
 	private String lastName;
 	private double salary;
 	private String grade;
 	private GregorianCalendar joinDate;
+	private ArrayList<Certificate> certificates = new ArrayList<Certificate>();
 	private static int numberOfEmployees = 0; {
 		numberOfEmployees++;
 	}
@@ -17,12 +19,12 @@ public abstract class Employee {
 	}
 	
 	public Employee(int employeeId, String firstName, String lastName, double salary, String grade, GregorianCalendar joinDate) {
-		this.employeeId = employeeId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.salary = salary;
-		this.grade = grade;
-		this.joinDate = joinDate;
+		setEmployeeId(employeeId);
+		setFirstName(firstName);
+		setLastName(lastName);
+		setSalary(salary);
+		setGrade(grade);
+		setJoinDate(joinDate);
 	}
 	
 	public int getEmployeeId() {
@@ -71,9 +73,14 @@ public abstract class Employee {
 	public void setJoinYear(int year) {
 		joinDate.set(Calendar.YEAR, year);
 	}
+	public void addCertificate(Certificate c) {
+		certificates.add(c);
+	}
+	@Override
+	public ArrayList<Certificate> getListOfCertifications() {
+		return certificates;
+	}
 	public static int getNumberOfEmployees() {
 		return numberOfEmployees;
 	}
-	
-	public abstract double getCoverage();
 }
